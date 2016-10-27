@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	>
+	
+	<EditText
+		android:id="@+id/Message"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
+		android:inputType="textMultiLine"
+		android:gravity="top"
+		/>
+	
+	<Button
+		android:id="@+id/Send"
+		android:text="发 送"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		/>
+	
+	<Button
+		android:id="@+id/Stop"
+		android:text="停 止"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		/>
+	
+</LinearLayout>

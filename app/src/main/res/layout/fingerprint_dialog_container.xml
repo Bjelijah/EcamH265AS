@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    
+    <FrameLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <include
+           
+            layout="@layout/fingerprint_dialog_content" />
+        
+    </FrameLayout>
+    
+      <LinearLayout
+        android:id="@+id/buttonPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:gravity="bottom"
+        style="?android:attr/buttonBarButtonStyle"
+        android:background="@drawable/fingerpaint_btn_background"
+       >
+
+        <TextView 
+            android:id="@+id/tv_finger_wait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:textColor="@color/red"
+            android:visibility="gone"
+            />  
+          
+          
+        <Space
+            android:id="@+id/spacer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+        
+      	<TextView 
+      	    android:id="@+id/tv_finger_cancel"
+      	    android:layout_width="wrap_content"
+      	    android:layout_height="wrap_content"
+      	    android:padding="12dp"
+      	    android:text="@string/finger_cancel"
+      	   
+      	    />
+        
+        <TextView 
+            android:id="@+id/tv_finger_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="@string/finger_login_with_password"
+            
+            />
+       
+
+      
+    </LinearLayout>
+    
+    
+
+</LinearLayout>

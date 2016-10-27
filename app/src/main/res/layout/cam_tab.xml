@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0"
+            android:background="@android:color/white" />
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:visibility="gone" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+             >
+
+            <RadioButton
+                android:id="@+id/rb_camera_list"
+                style="@style/main_tab_bottom"
+                android:checked="true"  
+                android:layout_marginTop="2.0dip"
+                android:layout_marginBottom="2dip"
+                android:drawableTop="@drawable/tab_camera_selector"
+                android:text="@string/camera_list"
+                android:textColor="@color/blue" />
+            <RadioButton
+                android:id="@+id/rb_local_files"
+                style="@style/main_tab_bottom"
+                android:layout_marginTop="2.0dip"
+                android:layout_marginBottom="2dip"
+                android:drawableTop="@drawable/tab_files_selector"
+                android:text="@string/media_lib"
+                android:textColor="@color/light_gray" />
+            
+            <RadioButton
+                android:id="@+id/rb_notices"
+                style="@style/main_tab_bottom"
+                android:layout_marginTop="2.0dip"
+                android:layout_marginBottom="2dip"
+                android:drawableTop="@drawable/tab_notice_selector"
+                android:text="@string/notice"
+                android:textColor="@color/light_gray" />
+            
+ <!--  android:background="@drawable/tab_press"-->
+            <RadioButton
+                android:id="@+id/rb_settings"
+                style="@style/main_tab_bottom"
+                android:layout_marginTop="2.0dip"
+                android:layout_marginBottom="2dip"
+                android:drawableTop="@drawable/tab_set_selector"
+                android:text="@string/more"
+                android:textColor="@color/light_gray" />
+ <!--  android:background="@drawable/tab_press"-->
+        </RadioGroup>
+    </LinearLayout>
+
+</TabHost>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg" >
+    <FrameLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="55dip"
+	    android:background="@color/title_blue" >
+        <ImageButton
+            android:id="@+id/ib_add_device_or_not_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@drawable/back_btn_selector"
+            android:layout_gravity="left|center" />
+        
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dip"
+        android:layout_marginLeft="5dip"
+        android:gravity="center"
+        android:text="您是否要添加摄像机到账户" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dip" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/ib_add_device_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:layout_marginBottom="5dip"
+                android:src="@drawable/send_wifi_finish_btn_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="添加" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/ib_add_device_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:layout_marginBottom="5dip"
+                android:src="@drawable/no_btn_red_selector" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="不添加" 
+                android:textColor="@color/red"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    
+
+</LinearLayout>

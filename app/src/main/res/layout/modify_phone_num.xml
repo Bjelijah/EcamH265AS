@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+    <FrameLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="55dip"
+	    android:background="@color/title_blue" >
+        <ImageButton
+            android:id="@+id/ib_modify_phone_num_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@drawable/back_btn_selector"
+            android:layout_gravity="left|center" />
+        
+        <ImageButton
+            android:id="@+id/ib_modify_phone_num_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/next_btn_selector"
+            android:layout_marginRight="10dip"
+            android:layout_gravity="right|center" />
+        <!--  <Button
+            android:id="@+id/ib_modify_phone_num_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:text="@string/ok"
+            android:background="@drawable/common_button_white"
+            android:layout_marginRight="10dip"/>-->
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/et_modify_phone_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:layout_marginBottom="20dip"
+        android:hint="@string/modify_phone_num_hint"
+        android:background="@drawable/list_item_bg_normal"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+</LinearLayout>

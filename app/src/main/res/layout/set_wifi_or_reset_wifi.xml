@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+    <FrameLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="55dip"
+	    android:background="@color/title_blue" >
+        <ImageButton
+            android:id="@+id/ib_reset_wifi_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@drawable/back_btn_selector"
+            android:layout_gravity="left|center" />
+        
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="红灯长亮请等待"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@color/red"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+        
+        <FrameLayout
+            android:id="@+id/fl_set_wifi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" 
+            android:layout_marginBottom="5dip"
+            android:background="@mipmap/cam_set_image_red" >
+            <TextView
+                android:id="@+id/tv_red_light_tips"
+                android:layout_width="150dip"
+                android:layout_height="wrap_content"
+                android:text="红灯闪烁"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:layout_marginRight="10dip"
+                android:layout_gravity="right|center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_reset_wifi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dip"
+            android:background="@mipmap/cam_set_image_green" >
+
+            <TextView
+                android:id="@+id/tv_green_light_tips"
+                android:layout_width="150dip"
+                android:layout_height="wrap_content"
+                android:text="绿灯长亮或闪烁"
+                android:textSize="18sp"
+                android:textColor="@color/green"
+                android:layout_marginRight="10dip"
+                android:layout_gravity="right|center" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

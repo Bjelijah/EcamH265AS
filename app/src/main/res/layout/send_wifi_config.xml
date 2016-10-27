@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg" >
+    <FrameLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="55dip"
+	    android:background="@color/title_blue" >
+        <ImageButton
+            android:id="@+id/ib_send_wifi_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@drawable/back_btn_selector"
+            android:layout_gravity="left|center" />
+
+    </FrameLayout>
+    
+    <TextView
+        android:id="@+id/tv_send_wifi_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:text="@string/send_wifi_config_activity_tip" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/iv_flash_background"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:src="@mipmap/wifi_background" />
+
+        <ImageView
+            android:id="@+id/iv_flash_background_red_light"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:src="@mipmap/wifi_background_red_light" />
+
+    </FrameLayout>
+
+   	<LinearLayout
+        android:id="@+id/ll_send_wifi_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" 
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_marginLeft="20dip"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/send_wifi_config_activity_final_tips"
+            android:textColor="@color/btn_green_color"
+            android:textSize="18sp" />
+        <FrameLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1" >
+
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:src="@mipmap/flash_background2"
+	             />
+	        
+	        <ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:src="@mipmap/flash_background2_green_light"
+	             />
+		</FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="10dip">
+
+        <LinearLayout
+            android:id="@+id/ll_ib_send_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <ImageButton
+                android:id="@+id/ib_send_wifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:layout_marginBottom="5dip"
+                android:src="@drawable/send_wifi_btn_selector" />
+
+            <TextView
+                android:id="@+id/tv_send_btn_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:text="@string/send_wifi_config_activity_btn_send" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_ib_finish_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:visibility="gone"  >
+
+            <ImageButton
+                android:id="@+id/ib_finish_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:layout_marginBottom="5dip"
+                android:src="@drawable/ok_btn_green_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/btn_green_color"
+                android:text="@string/send_wifi_config_activity_btn_send_finish" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

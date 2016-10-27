@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent">
+
+  <SurfaceView android:id="@+id/preview_view"
+               android:layout_width="fill_parent"
+               android:layout_gravity="center"
+               android:layout_height="fill_parent"
+               />
+  
+   <com.wyy.twodimcode.view.ViewfinderView
+      android:id="@+id/viewfinder_view"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      
+      android:background="@color/transparent"/>
+   
+    <include  android:id="@+id/two_dim_title" layout= "@layout/title_ceter_imageview"/>
+	
+
+</FrameLayout>

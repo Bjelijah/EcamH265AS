@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg" >
+    <FrameLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="55dip"
+	    android:background="@color/title_blue" >
+        <ImageButton
+            android:id="@+id/ib_add_sharer_account_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@drawable/back_btn_selector"
+            android:layout_gravity="left|center" />
+        <!-- <Button
+            android:id="@+id/btn_add_sharer_account_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="10dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:background="@drawable/common_button_white"
+            android:text="@string/share" /> -->
+		<ImageButton
+            android:id="@+id/btn_add_sharer_account_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/complete_btn_selector"
+            android:layout_gravity="right|center" /> 
+        
+    </FrameLayout>
+    
+    <EditText
+        android:id="@+id/et_add_sharer_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:hint="@string/add_sharer_account_et_hint_text"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        android:layout_marginBottom="5dip"
+        android:background="@drawable/list_single_item_bg_normal" 
+        android:textCursorDrawable="@null"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray">
+
+        <requestFocus />
+    </EditText>
+
+</LinearLayout>

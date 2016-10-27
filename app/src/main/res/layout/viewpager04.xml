@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fourth_viewpager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/b4"
+    android:orientation="vertical"
+    android:gravity="bottom|center" >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dip"
+        android:paddingTop="5dip"
+        android:paddingBottom="5dip"
+        android:onClick="startbutton"
+        android:text="@string/navigation_activity_btn"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/guide_enter_app_btn_selector" />
+
+</LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="55dip"
+        android:background="@color/title_blue"
+        android:gravity="center"
+        android:text="@string/media_lib"
+        android:textColor="#FFFFFFFF"
+        android:textSize="23sp" />
+
+    <FrameLayout
+        android:id="@+id/lf_local_file"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        
+        <LinearLayout
+            android:id="@+id/ll_loacl_file_no_image"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical"
+	        android:gravity="center" >
+        
+	        <ImageView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@mipmap/local_file_bg2" />
+	        
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/loacl_file_activity_no_iamge_bg"
+		        android:textColor="#bababa"
+		        android:textSize="30sp" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_localfiles"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent"
+            android:paddingTop="10dip"
+            android:scrollbars="none" >
+        </ListView>
+        <!-- <ImageView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:src="@drawable/local_file_bg" /> -->
+
+    </FrameLayout>
+
+    
+
+</LinearLayout>

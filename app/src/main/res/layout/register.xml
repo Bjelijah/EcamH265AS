@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+    <FrameLayout
+	    android:id="@+id/fl_title"
+	    android:layout_width="fill_parent"
+	    android:layout_height="55dip"
+	    android:background="@color/title_blue" >
+        <ImageButton
+            android:id="@+id/ib_register_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@drawable/back_btn_selector"
+            android:layout_gravity="left|center" />
+        <!--  <Button
+            android:id="@+id/btn_register_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="10dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:background="@drawable/common_button_white"
+            android:text="注册" />-->
+        <ImageButton
+            android:id="@+id/ib_register_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/next_btn_selector"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+    
+    <EditText
+        android:id="@+id/et_register_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:hint="@string/register_activity_username"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        android:layout_marginBottom="5dip"
+        android:background="@drawable/list_single_item_bg_normal" 
+        android:textCursorDrawable="@null"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray">
+
+        <requestFocus />
+    </EditText>
+    
+    <EditText
+        android:id="@+id/et_register_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/register_activity_email"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        android:layout_marginBottom="5dip"
+        android:textColorHint="@color/gray"
+        android:background="@drawable/list_single_item_bg_normal" >
+
+    </EditText>
+    
+    <EditText
+        android:id="@+id/et_register_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/register_activity_password"
+        android:password="true"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        android:layout_marginBottom="5dip"
+        android:textColorHint="@color/gray"
+        android:background="@drawable/list_single_item_bg_normal"  >
+
+    </EditText>
+    
+    <EditText
+        android:id="@+id/et_register_password_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/register_activity_password_confirm"
+        android:password="true"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        android:textColorHint="@color/gray"
+        android:background="@drawable/list_single_item_bg_normal"  >
+
+    </EditText>
+
+    <CheckBox
+        android:id="@+id/cb_register_show_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:textColor="@color/black"
+        android:layout_marginLeft="15dip"
+        style="@style/MyCheckBox"
+        android:text="@string/register_activity_show_password" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="100dip"
+        android:textColor="@color/black"
+        android:text="@string/register_activity_tips" />
+
+</LinearLayout>

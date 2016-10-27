@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/backgroundclear"
+    android:orientation="vertical"
+    android:gravity="bottom" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dip"
+        android:gravity="center"
+        android:layout_marginTop="130dip"
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:text="@string/login_or_register_activity_slogan" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/register_btn_selector"
+            android:paddingBottom="15dip"
+            android:paddingTop="15dip"
+            android:text="@string/login_or_register_activity_register"
+            android:textColor="@color/test_btn_bg"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/login_btn_selsector"
+            android:paddingBottom="15dip"
+            android:paddingTop="15dip"
+            android:text="@string/login_or_register_activity_login"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/btn_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/test_btn_selsector"
+            android:alpha="100"
+            android:paddingBottom="15dip"
+            android:paddingTop="15dip"
+            android:textSize="18dp"
+            android:text="@string/login_or_register_activity_try"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

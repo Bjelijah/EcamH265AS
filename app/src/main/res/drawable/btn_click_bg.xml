@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" 
+            android:color="@color/colorPink">
+    <item>
+        <selector>
+           <item android:state_pressed="true"  android:drawable="@mipmap/login_btn_press" />
+    	   <item android:state_focused="true" android:drawable="@mipmap/login_btn_press" />
+    	   <item android:drawable="@mipmap/login_btn" />
+        </selector>
+    </item>
+
+</ripple>

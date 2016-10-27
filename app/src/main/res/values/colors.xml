@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="white_highlight">#EDF0F1</color>
+    <color name="transparent">#00000000</color>
+    <color name="gold">#b89766</color>
+    <color name="black">#000000</color>
+    <color name="body">#D1DCE8</color>
+    <color name="title">#1D75A8</color>
+    <color name="tab_bottom">#43A0D6</color>
+    <color name="add_more">#E6E6E6</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#04F927</color>
+    <color name="gray">#A7A8A9</color>
+    <color name="blue">#007AFF</color>
+    <color name="light_gray">#BABABA</color>
+    <color name="title_blue">#408EE1</color>
+    <color name="card_tab_blue">#F7FAFF</color>
+    <color name="tab_bottom_bg">#CBCBCB</color>
+    <color name="bg">#eeeeee</color>
+    <color name="login_btn_bg">#70C2F1</color>
+    <color name="login_btn_bg_highlight">#65AED8</color>
+    <color name="test_btn_bg">#33AFF6</color>
+    <color name="test_btn_bg_highlight">#2EA0E2</color>
+    <color name="title_pop_normol">#181818</color>
+    
+    <color name="btn_blue_color">#2AB7F5</color>
+    <color name="btn_green_color">#26C023</color>
+    
+    <color name="possible_result_points">#ffffff</color> <!-- Android standard ICS color -->
+  	<color name="result_text">#ff000000</color>
+  
+  	<color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
+  	<color name="viewfinder_mask">#cb000000</color>
+  	<color name="viewfinder_frame">#ff0000ff</color>
+  	<color name="backgroud">#ffffffff</color>
+  	<color name="title_tv_color">#ffffffff</color>
+  
+  	<color name="play_talk">#50333333</color>
+  	
+  	<color name="warning_color">#f4511e</color>
+    <color name="hint_color">#42000000</color>
+    <color name="success_color">#009688</color>
+    
+    
+    <color name="finger_green">#308b4e</color>
+    <color name="finger_fail">#a44853</color>
+    <color name="finger_orgeen">#fd6b0b</color>
+    <color name="colorAccent">#4bc1ff</color>
+    <color name="colorPink">#FF4081</color>
+ 
+    <color name="dialogTitleColor">#2196f3</color>
+    <color name="dialog_orange">#ff5722</color>
+    <color name="phone_authenticated">#ff5252</color>
+</resources>

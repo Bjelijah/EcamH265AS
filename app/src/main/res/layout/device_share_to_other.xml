@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg" >
+    <FrameLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="55dip"
+	    android:background="@color/title_blue" >
+        <ImageButton
+            android:id="@+id/ib_device_share_to_other_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@drawable/back_btn_selector"
+            android:layout_gravity="left|center" />
+        
+    </FrameLayout>
+    
+    <FrameLayout
+        android:id="@+id/fl_device_share_to_other_add_account"
+    	android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:layout_marginBottom="20dip"
+	    android:background="@drawable/list_single_item_bg_normal">
+                        
+        <TextView
+	    	android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+	        android:layout_gravity="center_vertical"
+	        android:textColor="#ff333333"
+	        android:textSize="16.0sp"
+	        android:text="@string/device_share_to_other_add_sharer_account" />
+                        
+            <ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="right|center_vertical"
+				android:layout_marginRight="5dip"
+				android:src="@drawable/selector_forward" />
+	</FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginBottom="10dip"
+        android:text="@string/device_share_to_other_tips" />
+
+    <ListView
+        android:id="@+id/lv_device_share_to_other"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:listSelector="@android:color/transparent"
+        android:divider="@null"
+        android:scrollbars="none" >
+    </ListView>
+
+</LinearLayout>
