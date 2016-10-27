@@ -47,15 +47,14 @@ public class MyFingerprintUtil {
 		Class<AuthenticationResult> c = AuthenticationResult.class;
 		Method method1 = c.getMethod("getFingerprint");
 		method1.setAccessible(true);
-		Object [] nullobj = {null};
-		Object o = method1.invoke(result, nullobj);
+		Object o = method1.invoke(result);
 		String className = o.getClass().getName();
 		Class fingerprint = Class.forName(className);
 		Method method2 = fingerprint.getMethod("getFingerId");
-		Object idObj = method2.invoke(o, nullobj);
+		Object idObj = method2.invoke(o);
 		int fingerID = Integer.valueOf(idObj.toString());
 		Method method3 = fingerprint.getMethod("getName");
-		Object nameObj = method3.invoke(o, nullobj);
+		Object nameObj = method3.invoke(o);
 		String name = nameObj.toString();
 		bean.setFpID(fingerID);
 		bean.setName(name);
