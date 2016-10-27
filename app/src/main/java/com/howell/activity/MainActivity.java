@@ -262,6 +262,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			//			ft.commit();
 
 			mInfoSendDailog.show( getFragmentManager(), "phoneInfoSend");
+
 			//			Window window =mInfoSendDailog.getDialog().getWindow();
 			//			window.setWindowAnimations(R.style.DialogAnimation);
 

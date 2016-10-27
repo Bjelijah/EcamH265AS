@@ -38,4 +38,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('libs/core.jar')
     compile files('libs/brokenview.jar')
+    compile 'com.android.support:design:25.0.0'
 }

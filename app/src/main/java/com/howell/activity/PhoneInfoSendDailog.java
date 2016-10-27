@@ -1,6 +1,7 @@
 package com.howell.activity;
 
 
+import android.annotation.SuppressLint;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -47,12 +48,11 @@ public class PhoneInfoSendDailog extends DialogFragment implements OnTouchListen
 	
 
 
+	@SuppressLint("NewApi")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-			return  null;
-		}
+
 		mContext = getContext();
 		View v = inflater.inflate(R.layout.phone_info_send_dialog, container, false);
 

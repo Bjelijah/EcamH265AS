@@ -1,9 +1,9 @@
 package com.howell.activity;
 
+import android.annotation.SuppressLint;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -100,11 +100,10 @@ public class FingerPrintSaveFragment extends DialogFragment implements Fingerpri
 		setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Material_Light_Dialog);
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-			return null;
-		}
+		
 		mContext = getContext();
 		getDialog().setTitle(getString(R.string.finger_save_title));
 

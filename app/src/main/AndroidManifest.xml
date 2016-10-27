@@ -71,7 +71,8 @@
         <activity
             android:name="com.howell.activity.RegisterOrLogin"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar">
+
+            android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
 
         <activity

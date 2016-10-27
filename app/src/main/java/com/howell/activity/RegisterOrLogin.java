@@ -1,17 +1,17 @@
 package com.howell.activity;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.howell.action.FingerprintUiHelper;
 import com.howell.action.PlatformAction;
@@ -28,7 +28,7 @@ import com.howell.utils.PhoneConfig;
 import com.howell.utils.Util;
 import com.zys.brokenview.BrokenCallback;
 
-public class RegisterOrLogin extends Activity implements OnClickListener{
+public class RegisterOrLogin extends AppCompatActivity implements OnClickListener{
 	private TextView mRegister,mLogin,mTest;
 	private SoapManager mSoapManager;
 	private Activities mActivities;
@@ -138,8 +138,8 @@ public class RegisterOrLogin extends Activity implements OnClickListener{
 				protected void onPostExecute(Boolean result) {
 					super.onPostExecute(result);
 					if (!result) {
-						Toast.makeText(RegisterOrLogin.this, getResources().getString(R.string.login_fail), Toast.LENGTH_SHORT).show();
-//						Snackbar.make(mTest,getResources().getString(R.string.login_fail),Snackbar.LENGTH_LONG).show();
+//						Toast.makeText(RegisterOrLogin.this, getResources().getString(R.string.login_fail), Toast.LENGTH_SHORT).show();
+						Snackbar.make(mTest,getResources().getString(R.string.login_fail),Snackbar.LENGTH_LONG).show();
 						
 					}
 					waitDialog.dismiss();
