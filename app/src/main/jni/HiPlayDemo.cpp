@@ -12,7 +12,7 @@
 #include "include/net_sdk.h"
 #include "include/play_def.h"
 #include "include/IHW265Dec_Api.h"
-#include "transmgr.h"
+#include "include/transmgr.h"
 #include"com_howell_jni_JniUtil.h"
 
 

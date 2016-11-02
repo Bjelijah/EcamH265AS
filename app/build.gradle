@@ -10,14 +10,25 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        ndk{
-            abiFilters 'armeabi','armeabi-v7a'
+//        ndk{
+//            abiFilters 'armeabi','armeabi-v7a'
+//        }
+
+        externalNativeBuild{
+            ndkBuild{
+                arguments "NDK_APPLICATION_MK:=src/main/jni/Application.mk"
+                cFlags "-DTEST_C_FLAG1", "-DTEST_C_FLAG2"
+                cppFlags "-DTEST_CPP_FLAG2", "-DTEST_CPP_FLAG2"
+                abiFilters "armeabi-v7a", "armeabi"
+            }
         }
+
 
     }
 
     externalNativeBuild{
         ndkBuild{
+
             path 'src/main/jni/Android.mk'
         }
     }
