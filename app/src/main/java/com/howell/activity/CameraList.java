@@ -589,7 +589,7 @@ public class CameraList extends ListActivity implements Observer{
 //            	}else {
 //            		holder.tv_wifi.setText("wifi强度:强");
 //            	}
-            	if(camera.getIntensity() == 0){
+				if(camera.getIntensity() == 0){
                 	holder.iv_wifi.setImageResource(R.mipmap.wifi_0);
                 }else if((camera.getIntensity() > 0 && camera.getIntensity() <= 25)){
                 	holder.iv_wifi.setImageResource(R.mipmap.wifi_1);
@@ -598,9 +598,9 @@ public class CameraList extends ListActivity implements Observer{
                 }else if(camera.getIntensity() > 50 && camera.getIntensity() <= 75){
                 	holder.iv_wifi.setImageResource(R.mipmap.wifi_3);
                 }else{
-                	holder.iv_wifi.setImageResource(R.mipmap.wifi_4);
-                }
-	        }else {
+					holder.iv_wifi.setImageResource(R.mipmap.wifi_4);
+				}
+			}else {
 	        	if(country == 0)
 	        		holder.iv_offline.setImageResource(R.mipmap.card_offline_image_gray);
 	        	else 
@@ -656,7 +656,6 @@ public class CameraList extends ListActivity implements Observer{
 		            intent.putExtra("Device", ((NodeDetails) getItem(Integer.valueOf(arg0.getTag().toString()))));
 		            startActivity(intent);
 				}else if(arg0.getId() == R.id.iv_set){
-					//System.out.println("����");
 					if(!list.get(Integer.valueOf(arg0.getTag().toString())).isOnLine()){
 			    		MessageUtiles.postToast(getApplication(), getResources().getString(R.string.not_online_message),2000);
 			    		return;
@@ -705,7 +704,6 @@ public class CameraList extends ListActivity implements Observer{
 						PlatformAction.getInstance().setDeviceID(deviceID);
 			            PlatformAction.getInstance().setDevice_id(index);
 			            PlatformAction.getInstance().setCurSelNode(node);
-			            
 			            intent.putExtra("arg", ((NodeDetails) getItem(Integer.valueOf(arg0.getTag().toString()))));
 			            intent.putExtra("bPlayBack", false);
 			            startActivity(intent);
