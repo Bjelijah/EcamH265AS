@@ -333,9 +333,7 @@ public class PlayerFragmentActivity extends FragmentActivity implements Callback
 		if (!mHorizontal) {
 			return false;
 		}
-		
-		
-		
+
 		return false;
 	}
 

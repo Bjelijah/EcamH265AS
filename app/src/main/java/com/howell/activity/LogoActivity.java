@@ -93,7 +93,6 @@ public class LogoActivity extends Activity implements TagAliasCallback{
 		JniUtil.YUVInit();
 		JniUtil.netInit();
 		JniUtil.nativeAudioInit();
-	
 	}
 	
 	

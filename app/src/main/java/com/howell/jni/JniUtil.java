@@ -6,7 +6,6 @@ public class JniUtil {
 		System.loadLibrary("hwtrans");
 		System.loadLibrary("hwplay");
 		System.loadLibrary("player_jni");
-	
 	}
 	
 	//yuv
@@ -38,6 +37,7 @@ public class JniUtil {
 	public static native boolean loginOut();//no using
 	public static native void setCallBackObj(Object o);
 	public static native boolean readyPlayLive();
+	public static native boolean readyPlayTurnLive(Object bean);
 	public static native boolean readyPlayPlayback();
 	public static native void playView();
 	public static native void stopView();
@@ -46,7 +46,7 @@ public class JniUtil {
 
 	//transmission
 	
-	public static native void transInit(String ip,int port);
+	public static native void transInit(String ip,int port,boolean isUseSSL);
 	public static native void transSetCallBackObj(Object o,int flag);
 	public static native void transSetCallbackMethodName(String methodName,int flag);
 	public static native void transDeinit();

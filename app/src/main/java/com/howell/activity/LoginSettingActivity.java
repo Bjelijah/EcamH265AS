@@ -78,6 +78,9 @@ public class LoginSettingActivity extends Activity implements OnClickListener,IC
 		}else{
 			result = Utils.checkIsIP(ip);
 			Log.i("123","result = "+ result);
+
+			result = true;//FIXME ip maybe like "www.haoweis.com"  so we foces to true
+
 		}
 		
 		if (portStr.equals("")) {

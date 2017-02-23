@@ -55,6 +55,7 @@ public class PlatformAction implements IConst{
 	}
 	
 	public void setDeviceID(String deviceID){
+		Log.e("123","~~~~~~~~ PlatformAction set dev id="+deviceID);
 		this.deviceID = deviceID;
 	}
 	public String getDeviceID(){
@@ -101,7 +102,8 @@ public class PlatformAction implements IConst{
 		this.password = password;
 	}
 	public String getDeviceId(){
-		return device_id;
+//		return device_id;
+		return this.deviceID;
 	}
 	
 	public String getCurSelDeviceId(){
@@ -113,6 +115,7 @@ public class PlatformAction implements IConst{
 	}
 	
 	public void setTurnServerIP(String turnServerIp){
+//		Log.i("123","~~~~~~turnServerIP="+turnServerIp);
 		this.turnServerIp = turnServerIp;
 	}
 	
@@ -121,6 +124,7 @@ public class PlatformAction implements IConst{
 	}
 	
 	public void setTurnServerPort(int turnServerPort){
+//		Log.i("123","~~~~~turnServerPort="+turnServerPort);
 		this.turnServerPort = turnServerPort;
 	}
 	

@@ -2,12 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.howell.ecamh265">
 
+    <!--<permission-->
+        <!--android:name="com.android.howell.webcamH265.permission.JPUSH_MESSAGE"-->
+        <!--android:protectionLevel="signature" />-->
+
     <permission
-        android:name="com.android.howell.webcamH265.permission.JPUSH_MESSAGE"
+        android:name="com.howell.ecamh265.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.android.howell.webcamH265.permission.JPUSH_MESSAGE" />
 
+    <!--<uses-permission android:name="com.android.howell.webcamH265.permission.JPUSH_MESSAGE" />-->
+    <uses-permission android:name="com.howell.ecamh265.permission.JPUSH_MESSAGE" />
 
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
 

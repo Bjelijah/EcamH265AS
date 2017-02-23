@@ -34,43 +34,43 @@ typedef struct {
 
 typedef struct  
 {
-	int dev_type;//ËùÊôÉè±¸
+	int dev_type;//ï¿½ï¿½ï¿½ï¿½ï¿½è±¸
 
-	//ÊÓÆµÊôÐÔ
-	int v_type;//ÊÓÆµÀàÐÍ 0:h264 1:mjpeg
-	int v_w;//ÊÓÆµ¿í
-	int v_h;//ÊÓÆµ¸ß
-	int v_fr;//ÊÓÆµÖ¡ÂÊ
-	int v_vbr;//ÊÇ·ñ¶¯Ì¬ÂëÁ÷
-	int v_max_bps;//ÊÓÆµ×î´óÂëÁ÷	
-	int v_bright;//ÁÁ¶È
-	int v_constrast;//¶Ô±È¶È
-	int v_saturation;//±¥ºÍ¶È
-	int v_hue;//É«¶È
+	//ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½
+	int v_type;//ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ 0:h264 1:mjpeg
+	int v_w;//ï¿½ï¿½Æµï¿½ï¿½
+	int v_h;//ï¿½ï¿½Æµï¿½ï¿½
+	int v_fr;//ï¿½ï¿½ÆµÖ¡ï¿½ï¿½
+	int v_vbr;//ï¿½Ç·ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½
+	int v_max_bps;//ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	int v_bright;//ï¿½ï¿½ï¿½ï¿½
+	int v_constrast;//ï¿½Ô±È¶ï¿½
+	int v_saturation;//ï¿½ï¿½ï¿½Í¶ï¿½
+	int v_hue;//É«ï¿½ï¿½
 	int v_reserve[16];
 
-	//ÉãÏñ»ú×¨ÓÐÊôÐÔ
-	int ipc_bae;//ÊÇ·ñÆô¶¯×Ô¶¯ÆØ¹â
-	int ipc_bai;//ÊÇ·ñ×Ô¶¯¹âÈ¦
-	int ipc_eshutter;//¿ìÃÅ
-	int ipc_agc;//ÔöÒæ
-	int ipc_luma;//Á÷Ã÷
-	int ipc_noise_filter;//ÔëÉùÒÖÖÆ0-6,6×î´ó
-	int ipc_sharpen;//Èñ¶È0-255£¬6×î´ó
+	//ï¿½ï¿½ï¿½ï¿½ï¿½×¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int ipc_bae;//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½Ø¹ï¿½
+	int ipc_bai;//ï¿½Ç·ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½È¦
+	int ipc_eshutter;//ï¿½ï¿½ï¿½ï¿½
+	int ipc_agc;//ï¿½ï¿½ï¿½ï¿½
+	int ipc_luma;//ï¿½ï¿½ï¿½ï¿½
+	int ipc_noise_filter;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0-6,6ï¿½ï¿½ï¿½
+	int ipc_sharpen;//ï¿½ï¿½ï¿½0-255ï¿½ï¿½6ï¿½ï¿½ï¿½
 	int ipc_gama;//0-9
 	int ipc_reserve[16];
 
-	//ÒôÆµÊôÐÔ
-	int a_type;//ÒôÆµÀàÐÍ 0:g711u 1:g711a
-	int a_bits;//ÒôÆµÎ»Êý
-	int a_chn;//ÒôÆµÍ¨µÀÊý
-	int a_sample;//ÒôÆµ²ÉÑùÂÊ
+	//ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½
+	int a_type;//ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ 0:g711u 1:g711a
+	int a_bits;//ï¿½ï¿½ÆµÎ»ï¿½ï¿½
+	int a_chn;//ï¿½ï¿½ÆµÍ¨ï¿½ï¿½ï¿½ï¿½
+	int a_sample;//ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int a_reserve[16];
 	
 	int reserve[16];
 }extra_data;
 
-// ÍøÂçÔÓÏîÊý¾Ý
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 typedef struct{
 	int  pos;
 	int end[2];
@@ -101,6 +101,9 @@ typedef enum{
 	ADEC_HISADPCM_DVI4 =			0x09,
 	ADEC_AAC =						0x0a,
 	ADEC_G726_32 =					0x0b,
+	VDEC_HIS_H265  =                0x0f,
+	VDEC_HISH265_ENCRYPT = 0x10,
+	VDEC_H264_ENCRYPT = 0x11,
 }HW_DEC_TYPE;
 #else
 typedef enum{
@@ -126,7 +129,7 @@ typedef struct
 	unsigned char au_sample;//Kbps 8,16,64
 	unsigned char au_channel;//1,2
 	unsigned char reserve;
-	unsigned int    reserved[5];            // ±£Áô
+	unsigned int    reserved[5];            // ï¿½ï¿½ï¿½ï¿½
 }HW_MEDIAINFO;
 
 #define VERSION_HIS(x) ((x) >= 40000 && (x) <= 49999)

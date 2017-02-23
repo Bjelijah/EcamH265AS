@@ -147,7 +147,7 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
 LOCAL_SHARED_LIBRARIES := hwplay jpush hiPlay hwtrans ecamstream
 #LOCAL_STATIC_LIBRARIES := ecamstream
 LOCAL_LDFLAGS := -LE:/Android/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a
-LOCAL_LDLIBS := -llog -lgnustl_static -lGLESv2 -lz -ldl -lgcc
+LOCAL_LDLIBS := -llog  -lGLESv2 -lz -ldl -lgcc #-lgnustl_static
 LOCAL_CFLAGS := -fPIC
 LOCAL_DISABLE_FATAL_LINKER_WARNINGS := true
 #	-L$(NDK_PLATFORMS_ROOT)/$(TARGET_PLATFORM)/arch-arm/usr/lib -L$(LOCAL_PATH) -lz -ldl -lgcc 

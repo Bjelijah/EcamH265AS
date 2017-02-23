@@ -62,7 +62,11 @@ public class SoapManager implements Serializable ,IConst{
 		}else{
 			String ip = SharedPreferencesUtil.getLoginServiceIP(context);
 	    	int port = SharedPreferencesUtil.getLoginServicePort(context);
-			sEndPoint = "https://"+ip+":"+port+"/HomeService/HomeMCUService.svc?wsdl";
+			if (USING_WSDL_ENCRYPTION) {
+				sEndPoint = "https://" + ip + ":" + port + "/HomeService/HomeMCUService.svc?wsdl";
+			}else {
+				sEndPoint = "http://" + ip + ":" + port + "/HomeService/HomeMCUService.svc?wsdl";
+			}
 		}
     	
     }
@@ -117,8 +121,10 @@ public class SoapManager implements Serializable ,IConst{
         envelope.dotNet = true;
         envelope.encodingStyle = "UTF-8";
         envelope.setOutputSoapObject(rpc);
-       // com.howell.activity.FakeX509TrustManager.allowAllSSL(); 
-        SSLConection.allowAllSSL(context);
+       // com.howell.activity.FakeX509TrustManager.allowAllSSL();
+		if(USING_WSDL_ENCRYPTION){
+			SSLConection.allowAllSSL(context);
+		}
         HttpTransportSE transport;
         Log.i("123", "sEndPoint="+sEndPoint);
 		transport = new HttpTransportSE(sEndPoint);

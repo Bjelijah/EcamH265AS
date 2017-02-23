@@ -185,6 +185,14 @@ JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayLive
 
 /*
  * Class:     com_howell_jni_JniUtil
+ * Method:    readyPlayTurnLive
+ * Signature: (Ljava/lang/Object;)Z
+ */
+JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayTurnLive
+  (JNIEnv *, jclass, jobject);
+
+/*
+ * Class:     com_howell_jni_JniUtil
  * Method:    readyPlayPlayback
  * Signature: ()Z
  */
@@ -218,10 +226,10 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_getHI265Version
 /*
  * Class:     com_howell_jni_JniUtil
  * Method:    transInit
- * Signature: (Ljava/lang/String;I)V
+ * Signature: (Ljava/lang/String;IZ)V
  */
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transInit
-  (JNIEnv *, jclass, jstring, jint);
+  (JNIEnv *, jclass, jstring, jint, jboolean);
 
 /*
  * Class:     com_howell_jni_JniUtil

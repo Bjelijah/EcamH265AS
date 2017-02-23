@@ -212,7 +212,7 @@ void audio_play(const char* buf,int len)
  *  JNI interface
  */
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVInit
-(JNIEnv *env, jclass){
+		(JNIEnv *env, jclass){
 	if(g_yuv_info == NULL){
 		g_yuv_info = (yv12_info_t*)malloc(sizeof(yv12_info_t));
 		memset(g_yuv_info,0,sizeof(yv12_info_t));
@@ -235,7 +235,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVInit
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVDeinit
-(JNIEnv *env, jclass){
+		(JNIEnv *env, jclass){
 	return;//we never release
 	if(g_yuv_info!=NULL){
 		free(g_yuv_info);
@@ -264,36 +264,36 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVDeinit
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVSetCallbackObject
-(JNIEnv *env, jclass, jobject callbackObject, jint flag){
+		(JNIEnv *env, jclass, jobject callbackObject, jint flag){
 	if(g_yuv_info==NULL)return;
 	switch (flag) {
-	case 0:
-		g_yuv_display->callback_obj = env->NewGlobalRef(callbackObject);
-		break;
-	default:
-		break;
+		case 0:
+			g_yuv_display->callback_obj = env->NewGlobalRef(callbackObject);
+			break;
+		default:
+			break;
 	}
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVSetCallbackMethodName
-(JNIEnv *env, jclass, jstring method_name, jint flag){
+		(JNIEnv *env, jclass, jstring method_name, jint flag){
 	if(g_yuv_info==NULL)return;
 	const char * _method_name= env->GetStringUTFChars(method_name,NULL);
 	switch (flag) {
-	case 0:
-		strcpy(g_yuv_info->set_time_method_name,_method_name);
-		break;
-	case 1:
-		strcpy(g_yuv_info->request_method_name,_method_name);
-		break;
-	default:
-		break;
+		case 0:
+			strcpy(g_yuv_info->set_time_method_name,_method_name);
+			break;
+		case 1:
+			strcpy(g_yuv_info->request_method_name,_method_name);
+			break;
+		default:
+			break;
 	}
 	env->ReleaseStringUTFChars(method_name,_method_name);
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVLock
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if(g_yuv_display == NULL){
 		return;
 	}
@@ -301,7 +301,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVLock
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVUnlock
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if(g_yuv_display == NULL){
 		return;
 	}
@@ -309,12 +309,12 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVUnlock
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVSetEnable
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	g_yuv_display->enable = 1;
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVRenderY
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if (g_yuv_display->y == NULL) {
 		char value[4] = {0,0,0,0};
 		glTexImage2D(GL_TEXTURE_2D,0,GL_LUMINANCE,2,2,0,GL_LUMINANCE,GL_UNSIGNED_BYTE,value);
@@ -326,7 +326,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVRenderY
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVRenderU
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if (g_yuv_display->u == NULL) {
 		char value[] = {128};
 		glTexImage2D(GL_TEXTURE_2D,0,GL_LUMINANCE,1,1,0,GL_LUMINANCE,GL_UNSIGNED_BYTE,value);
@@ -337,7 +337,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVRenderU
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVRenderV
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if (g_yuv_display->v == NULL) {
 		char value[] = {128};
 		glTexImage2D(GL_TEXTURE_2D,0,GL_LUMINANCE,1,1,0,GL_LUMINANCE,GL_UNSIGNED_BYTE,value);
@@ -457,7 +457,7 @@ INT32 H265DecLoadAU(UINT8* pStream, UINT32 iStreamLen, UINT32* pFrameLen)
 	for( i = 0; i < iStreamLen; i++)
 	{
 		if( (state & 0xFFFFFF7E) >= 0x100 &&
-				(state & 0xFFFFFF7E) <= 0x13E )
+			(state & 0xFFFFFF7E) <= 0x13E )
 		{
 			if( 1 == bFrameStartFound || bSliceStartFound == 1 )
 			{
@@ -476,8 +476,8 @@ INT32 H265DecLoadAU(UINT8* pStream, UINT32 iStreamLen, UINT32* pFrameLen)
 
 		/*find a vps, sps, pps*/
 		if( (state&0xFFFFFF7E) == 0x140 ||
-				(state&0xFFFFFF7E) == 0x142 ||
-				(state&0xFFFFFF7E) == 0x144)
+			(state&0xFFFFFF7E) == 0x142 ||
+			(state&0xFFFFFF7E) == 0x144)
 		{
 			if (1 == bSliceStartFound)
 			{
@@ -510,9 +510,6 @@ void hi265InputData(const char *buf,int len){
 	INT32 iNaluLen;
 
 	H265DecLoadAU((UINT8 *)buf, (UINT32)len, (UINT32*)&iNaluLen);
-
-
-
 
 }
 
@@ -571,18 +568,20 @@ static void on_source_callback(PLAY_HANDLE handle, int type, const char* buf, in
 
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_netInit
-(JNIEnv *env, jclass cls){
+		(JNIEnv *env, jclass cls){
 	if(res == NULL){
 		res = (StreamResource *)malloc(sizeof(StreamResource));
 		memset(res,0,sizeof(StreamResource));
 		env->GetJavaVM(&res->jvm);
 		res->obj = NULL;
 		res->is_exit = 0;
+		res->play_handle = -1;
 	}
+
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_netDeinit
-(JNIEnv *env, jclass){
+		(JNIEnv *env, jclass){
 	return ;//we never release
 	if(res != NULL){
 		res->is_exit = 1 ;
@@ -596,7 +595,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_netDeinit
 }
 
 JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_login
-(JNIEnv *env, jclass, jstring ip){
+		(JNIEnv *env, jclass, jstring ip){
 	const char* _ip = env-> GetStringUTFChars(ip,NULL);
 	int ret = register_nvr(_ip);
 	env->ReleaseStringUTFChars(ip,_ip);
@@ -604,7 +603,7 @@ JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_login
 }
 
 JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_loginOut
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	//	if(res==NULL)return false;
 	//	if(res->user_handle<0)return false;
 	//	int ret = hwnet_logout(res->user_handle);
@@ -613,13 +612,13 @@ JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_loginOut
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_setCallBackObj
-(JNIEnv *env, jclass, jobject obj){
+		(JNIEnv *env, jclass, jobject obj){
 	if(res == NULL) return;
 	res->obj = env->NewGlobalRef(obj);
 }
 
 JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayLive
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if(res == NULL) return false;
 
 	hwplay_init(1,0,0);
@@ -659,13 +658,87 @@ JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayLive
 	return res->play_handle>=0?true:false;
 }
 
+JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayTurnLive
+		(JNIEnv *env, jclass, jobject obj){
+	if(res == NULL) return false;
+	jclass clz = env->GetObjectClass(obj);
+	int auChannel = 0;
+	int auSample = 0;
+	int auBits = 0;
+	int auCode = 0;
+	int vidioCode = 0;
+	jfieldID id = env->GetFieldID(clz,"audioChannels","I");
+	auChannel = env->GetIntField(obj,id);
+	id = env->GetFieldID(clz,"audioSamples","I");
+	auSample = env->GetIntField(obj,id);
+	id = env->GetFieldID(clz,"audioBitwidth","I");
+	auBits = env->GetIntField(obj,id);
+	id = env->GetFieldID(clz,"audioCodec","I");
+	auCode = env->GetIntField(obj,id);
+	id = env->GetFieldID(clz,"videoCodec","I");
+	vidioCode = env->GetIntField(obj,id);
+
+
+	hwplay_init(1,0,0);
+	RECT area;
+	HW_MEDIAINFO media_head;
+	memset(&media_head,0,sizeof(media_head));
+
+
+	media_head.media_fourcc = HW_MEDIA_TAG;
+	media_head.au_channel = auChannel;
+	media_head.au_sample = auSample/1000;
+	media_head.au_bits = 16;
+
+	switch (auCode){
+		case 0:
+			media_head.adec_code = ADEC_AAC;
+			break;
+		case 1:
+			media_head.adec_code = ADEC_G711U;
+			break;
+	}
+
+	switch (vidioCode){
+		case 0:
+			media_head.vdec_code = VDEC_H264;//ecam
+			break;
+		case 1:
+			media_head.vdec_code = VDEC_H264_ENCRYPT;//bao
+			break;
+		case 2:
+			media_head.vdec_code = VDEC_HIS_H265;//h265
+			break;
+		case 3:
+			media_head.vdec_code = VDEC_HISH265_ENCRYPT;//h265 encrypt
+			break;
+	}
+
+//	media_head.adec_code = ADEC_AAC;
+//	//	media_head.vdec_code = 0x0f;
+//	media_head.vdec_code = 0x10;
+
+    PLAY_HANDLE  ph = hwplay_open_stream((const char*)&media_head,sizeof(media_head),1024*1024,0,area);
+    res->play_handle = ph;
+    hwplay_open_sound(ph);
+    //hwplay_set_max_framenum_in_buf(ph,is_playback?25:5);
+    LOGI("ph=%d",ph);
+    int b = hwplay_register_source_data_callback(ph,on_source_callback,0);
+    LOGI("callback bool = %d   play_handle=%d ",b,res->play_handle);
+    return res->play_handle>=0?true:false;
+
+
+}
+
+
+
 JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayPlayback
-(JNIEnv *env, jclass cls){
+		(JNIEnv *env, jclass cls){
 	return Java_com_howell_jni_JniUtil_readyPlayLive(env,cls);
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_playView
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if(res == NULL) return;
 	if(res->play_handle<0)return;
 	res->is_exit = 0;
@@ -673,13 +746,14 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_playView
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_stopView
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if(res == NULL)return;
 
 	hwplay_stop(res->play_handle);
 	//hwnet_close_live_stream(res->live_stream_handle);
 
 	res->is_exit = 1;
+	res->play_handle = -1;
 	//deInit265Decode();
 }
 
@@ -699,7 +773,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_stopView
 
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_nativeAudioInit
-(JNIEnv *env, jclass){
+		(JNIEnv *env, jclass){
 	if(self==NULL){
 		self = (TAudioPlay*)malloc(sizeof(TAudioPlay));
 		memset(self,0,sizeof(TAudioPlay));
@@ -712,7 +786,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_nativeAudioInit
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_nativeAudioDeinit
-(JNIEnv *env, jclass){
+		(JNIEnv *env, jclass){
 	return;//we never release
 	if(self!=NULL){
 		if(self->obj!=NULL){
@@ -726,51 +800,51 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_nativeAudioDeinit
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_nativeAudioSetCallbackObject
-(JNIEnv *env, jclass, jobject obj, jint flag){
+		(JNIEnv *env, jclass, jobject obj, jint flag){
 	if(self==NULL)return;
 	switch(flag){
-	case 0:
-		self->obj = env->NewGlobalRef(obj);
-		break;
-	default:
-		break;
+		case 0:
+			self->obj = env->NewGlobalRef(obj);
+			break;
+		default:
+			break;
 	}
 }
 
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_nativeAudioSetCallbackMethodName
-(JNIEnv *env, jclass, jstring str, jint flag){
+		(JNIEnv *env, jclass, jstring str, jint flag){
 	if(self==NULL)return;
 	if(self->obj==NULL)return;
 	jclass clz = env->GetObjectClass(self->obj);
 	char *_str = (char *)env->GetStringUTFChars(str,NULL);
 	switch(flag){
-	case 0:{
-		self->data_length_id = env->GetFieldID(clz, _str, "I");
-	}
-	break;
-	case 1:{
-		jfieldID id = env->GetFieldID(clz,_str,"[B");
-		jbyteArray data = (jbyteArray)env->GetObjectField(self->obj,id);
-		self->data_array = (jbyteArray)env->NewGlobalRef(data);
-		env->DeleteLocalRef(data);
-		self->data_array_len =env->GetArrayLength(self->data_array);
-	}
-	break;
-	default:
-		break;
+		case 0:{
+			self->data_length_id = env->GetFieldID(clz, _str, "I");
+		}
+			break;
+		case 1:{
+			jfieldID id = env->GetFieldID(clz,_str,"[B");
+			jbyteArray data = (jbyteArray)env->GetObjectField(self->obj,id);
+			self->data_array = (jbyteArray)env->NewGlobalRef(data);
+			env->DeleteLocalRef(data);
+			self->data_array_len =env->GetArrayLength(self->data_array);
+		}
+			break;
+		default:
+			break;
 	}
 	env->ReleaseStringUTFChars(str,_str);
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_nativeAudioStop
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if(self==NULL)return;
 	self->stop=1;
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_nativeAudioBPlayable
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if(self==NULL)return;
 	self->stop=0;
 }
@@ -786,7 +860,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_nativeAudioBPlayable
  **************************/
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_getHI265Version
-(JNIEnv *env, jclass){
+		(JNIEnv *env, jclass){
 
 	IHWVIDEO_ALG_VERSION_STRU stVersion;
 	IHW265D_GetVersion(&stVersion);
@@ -810,7 +884,7 @@ typedef struct {
 	JavaVM* jvm;
 	JNIEnv * env;
 	jobject callback_obj;
-	jmethodID on_connect_method,on_disconnect_method,on_recordFile_method,on_socket_error_method;
+	jmethodID on_connect_method,on_disconnect_method,on_recordFile_method,on_socket_error_method,on_subscribe_method;
 	int transDataLen;
 }TRANS_T;
 
@@ -878,27 +952,44 @@ int on_my_ack_res(int msgCommand,void * res,int len){
 
 	LOGI("msgCommand = 0x%x",msgCommand);
 	switch (msgCommand) {
-	case 0x13:
-	{
-		JNIEnv *env = NULL;
-		JavaVM * _jvm = g_transMgr->jvm;
-		if(_jvm->AttachCurrentThread( &env, NULL) != JNI_OK) {
-			LOGE("%s: AttachCurrentThread() failed", __FUNCTION__);
-			return 0;
+		case 0x13:
+		{
+			JNIEnv *env = NULL;
+			JavaVM * _jvm = g_transMgr->jvm;
+			if(_jvm->AttachCurrentThread( &env, NULL) != JNI_OK) {
+				LOGE("%s: AttachCurrentThread() failed", __FUNCTION__);
+				return 0;
+			}
+			env->CallVoidMethod(g_transMgr->callback_obj,g_transMgr->on_disconnect_method);
+			if (_jvm->DetachCurrentThread() != JNI_OK) {
+				LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
+			}
 		}
-		env->CallVoidMethod(g_transMgr->callback_obj,g_transMgr->on_disconnect_method);
-		if (_jvm->DetachCurrentThread() != JNI_OK) {
-			LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
+			break;
+		case 0x15:
+		{
+			JNIEnv *env = NULL;
+			JavaVM * _jvm = g_transMgr->jvm;
+			if(_jvm->AttachCurrentThread( &env, NULL) != JNI_OK) {
+				LOGE("%s: AttachCurrentThread() failed", __FUNCTION__);
+				return 0;
+			}
+			jstring  jsonStr = env->NewStringUTF((char *)res);
+			env->CallVoidMethod(g_transMgr->callback_obj,g_transMgr->on_subscribe_method,jsonStr);
+			env->DeleteLocalRef(jsonStr);
+			if (_jvm->DetachCurrentThread() != JNI_OK) {
+				LOGE("%s: DetachCurrentThread() failed", __FUNCTION__);
+			}
 		}
-	}
-	break;
-	case 0x104:
-	{
-		on_record_list_res((const char*)res,len);
-	}
-	break;
-	default:
-		break;
+			break;
+		case 0x104:
+		{
+			on_record_list_res((const char*)res,len);
+		}
+			break;
+
+		default:
+			break;
 	}
 
 
@@ -995,15 +1086,17 @@ int on_my_data_fun(int type,const char *data,int len){
 
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transInit
-(JNIEnv *env, jclass, jstring ip, jint port){
+		(JNIEnv *env, jclass, jstring ip, jint port,jboolean isSSL){
 	if(g_transMgr==NULL){
 		g_transMgr = (TRANS_T*)malloc(sizeof(TRANS_T));
 		memset(g_transMgr,0,sizeof(TRANS_T));
-
-
 		env->GetJavaVM(&g_transMgr->jvm);
 	}
 	trans_init(on_my_connect,on_my_ack_res,on_my_data_fun,on_my_socket_error_fun);
+	if (!isSSL){
+		trans_set_no_use_ssl();
+	}
+
 	const char * _ip = env->GetStringUTFChars(ip,0);
 	strcpy(g_transMgr->ip,_ip);
 	g_transMgr->port = port;
@@ -1016,7 +1109,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transInit
 
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transDeinit
-(JNIEnv *env, jclass){
+		(JNIEnv *env, jclass){
 	trans_deInit();
 	return;//we never release
 	if(g_transMgr!=NULL){
@@ -1030,7 +1123,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transDeinit
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transConnect
-(JNIEnv *env, jclass, jint type, jstring id, jstring name, jstring pwd){
+		(JNIEnv *env, jclass, jint type, jstring id, jstring name, jstring pwd){
 	if(g_transMgr==NULL)return;
 	const char * _id = env->GetStringUTFChars(id,0);
 	const char * _name = env->GetStringUTFChars(name,0);
@@ -1045,73 +1138,78 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transConnect
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transDisconnect
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	trans_disconnect();
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSetCallBackObj
-(JNIEnv *env, jclass, jobject obj, jint flag){
+		(JNIEnv *env, jclass, jobject obj, jint flag){
 	if(g_transMgr==NULL)return;
 	switch(flag){
-	case 0:
-		g_transMgr->callback_obj = env->NewGlobalRef(obj);
-		break;
-	default:
-		break;
+		case 0:
+			g_transMgr->callback_obj = env->NewGlobalRef(obj);
+			break;
+		default:
+			break;
 	}
 
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSetCallbackMethodName
-(JNIEnv *env, jclass, jstring method, jint flag){
+		(JNIEnv *env, jclass, jstring method, jint flag){
 	if(g_transMgr==NULL) return;
 	const char * _mehtod = env->GetStringUTFChars(method,0);
 	switch(flag){
-	case 0:{
-		jclass clz = env->GetObjectClass(g_transMgr->callback_obj);
-		g_transMgr->on_connect_method = env->GetMethodID(clz,_mehtod,"(Ljava/lang/String;)V");
-		break;
-	}
+		case 0:{
+			jclass clz = env->GetObjectClass(g_transMgr->callback_obj);
+			g_transMgr->on_connect_method = env->GetMethodID(clz,_mehtod,"(Ljava/lang/String;)V");
+			break;
+		}
 
-	case 1:{
-		jclass clz = env->GetObjectClass(g_transMgr->callback_obj);
-		g_transMgr->on_disconnect_method = env->GetMethodID(clz,_mehtod,"()V");
-		break;
-	}
+		case 1:{
+			jclass clz = env->GetObjectClass(g_transMgr->callback_obj);
+			g_transMgr->on_disconnect_method = env->GetMethodID(clz,_mehtod,"()V");
+			break;
+		}
 
-	case 2:{
-		jclass clz = env->GetObjectClass(g_transMgr->callback_obj);
-		g_transMgr->on_recordFile_method = env->GetMethodID(clz,_mehtod,"(Ljava/lang/String;)V");
-		break;
-	}
+		case 2:{
+			jclass clz = env->GetObjectClass(g_transMgr->callback_obj);
+			g_transMgr->on_recordFile_method = env->GetMethodID(clz,_mehtod,"(Ljava/lang/String;)V");
+			break;
+		}
 
-	case 3:{
-		jclass clz = env->GetObjectClass(g_transMgr->callback_obj);
-		g_transMgr->on_socket_error_method = env->GetMethodID(clz,_mehtod,"()V");
-		break;
-	}
+		case 3:{
+			jclass clz = env->GetObjectClass(g_transMgr->callback_obj);
+			g_transMgr->on_socket_error_method = env->GetMethodID(clz,_mehtod,"()V");
+			break;
+		}
+		case 4:{
+			jclass clz = env->GetObjectClass(g_transMgr->callback_obj);
+			g_transMgr->on_subscribe_method = env->GetMethodID(clz,_mehtod,"(Ljava/lang/String;)V");
+			break;
+		}
 
-	default:
-		break;
+		default:
+			break;
 	}
 	env->ReleaseStringUTFChars(method,_mehtod);
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSubscribe
-(JNIEnv *env, jclass, jstring jsonStr, jint jsonLen){
+		(JNIEnv *env, jclass, jstring jsonStr, jint jsonLen){
 	const char *_jsonStr = env->GetStringUTFChars(jsonStr,0);
 	trans_subscribe(_jsonStr,jsonLen);
 	env->ReleaseStringUTFChars(jsonStr,_jsonStr);
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transUnsubscribe
-(JNIEnv *env, jclass){
+		(JNIEnv *env, jclass){
 	trans_unsubscribe();
 }
 
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_catchPic
-(JNIEnv *env, jclass, jstring path){
+		(JNIEnv *env, jclass, jstring path){
 	if(res==NULL)return;
 	if(res->play_handle==-1)return;
 	const char *_path = env->GetStringUTFChars(path,0);
@@ -1126,7 +1224,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_catchPic
 
 
 JNIEXPORT jint JNICALL Java_com_howell_jni_JniUtil_transGetStreamLenSomeTime
-(JNIEnv *, jclass){
+		(JNIEnv *, jclass){
 	if(g_transMgr==NULL)return 0;
 	int streamLen = g_transMgr->transDataLen;
 	g_transMgr->transDataLen = 0;
@@ -1134,7 +1232,7 @@ JNIEXPORT jint JNICALL Java_com_howell_jni_JniUtil_transGetStreamLenSomeTime
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transGetCam
-(JNIEnv *env, jclass, jstring jsonStr, jint len){
+		(JNIEnv *env, jclass, jstring jsonStr, jint len){
 	const char *_jsonStr = env->GetStringUTFChars(jsonStr,0);
 	trans_getCamrea(_jsonStr,len);
 	env->ReleaseStringUTFChars(jsonStr,_jsonStr);
@@ -1142,14 +1240,14 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transGetCam
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transGetRecordFiles
-(JNIEnv *env, jclass, jstring jsonStr, jint len){
+		(JNIEnv *env, jclass, jstring jsonStr, jint len){
 	const char *_jsonStr = env->GetStringUTFChars(jsonStr,0);
 	trans_getRecordFiles(_jsonStr,len);
 	env->ReleaseStringUTFChars(jsonStr,_jsonStr);
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSetCrt
-(JNIEnv *env, jclass, jstring ca, jstring client, jstring key){
+		(JNIEnv *env, jclass, jstring ca, jstring client, jstring key){
 	const char * _ca = env->GetStringUTFChars(ca,0);
 	const char * _client = env->GetStringUTFChars(client,0);
 	const char * _key  = env->GetStringUTFChars(key,0);
@@ -1167,7 +1265,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSetCrt
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSetCrtPaht
-(JNIEnv *env, jclass, jstring caPath, jstring clientPath, jstring keyPath){
+		(JNIEnv *env, jclass, jstring caPath, jstring clientPath, jstring keyPath){
 	const char *_caPath = env->GetStringUTFChars(caPath,0);
 	const char * _clientPath = env->GetStringUTFChars(clientPath,0);
 	const char * _keyPath = env->GetStringUTFChars(keyPath,0);
@@ -1184,7 +1282,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSetCrtPaht
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_turnInputViewData
-(JNIEnv *env, jclass, jbyteArray byteArray, jint len){
+		(JNIEnv *env, jclass, jbyteArray byteArray, jint len){
 	if(res == NULL){
 		LOGE("res == null");
 		return ;

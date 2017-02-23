@@ -216,6 +216,7 @@ public class PlayerActivity extends Activity implements Callback, OnTouchListene
         Intent intent = getIntent();
 		if (intent.getSerializableExtra("arg") instanceof NodeDetails) {
             dev = (NodeDetails) intent.getSerializableExtra("arg");
+			Log.e("123","dev="+dev.toString());
             playback = false;
 		} else if (intent.getSerializableExtra("arg") instanceof VODRecord) {
             mRecord = (VODRecord) intent.getSerializableExtra("arg");
@@ -441,7 +442,13 @@ public class PlayerActivity extends Activity implements Callback, OnTouchListene
 	    	boolean isNewVer = false;
 	    	@Override
 			protected Void doInBackground(Void... arg0) {
-	    		isNewVer = checkDevVer();
+				try{
+					isNewVer = checkDevVer();
+				}catch (Exception e){
+					Log.e("123","dev ver error");
+					isNewVer = false;
+				}
+
 				return null;
 			}
 	    	
@@ -1088,6 +1095,7 @@ public class PlayerActivity extends Activity implements Callback, OnTouchListene
 	
 	private void quitDisplay(){
 		Log.i("123", "quitDisplay");
+		PlayerManager.getInstance().quitPlay();
 		if (backCount == 0) {
 			audioStop();
 			stopSendMessage = true;
@@ -1116,7 +1124,6 @@ public class PlayerActivity extends Activity implements Callback, OnTouchListene
         super.onKeyDown(keyCode, event);
       
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-        	
         	Log.e("backCount", "press back button backCount:"+backCount);
         	if(null != client){
         		client.setQuit(true);
@@ -1129,7 +1136,6 @@ public class PlayerActivity extends Activity implements Callback, OnTouchListene
 			
         	finish();
         }
-        
         return false;
     }
 

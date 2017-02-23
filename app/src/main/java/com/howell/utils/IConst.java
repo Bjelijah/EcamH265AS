@@ -2,7 +2,12 @@ package com.howell.utils;
 
 public interface IConst {
 
-	final int MSG_LOGIN_CAM_OK       = 0xf0;
+
+
+	final boolean USING_WSDL_ENCRYPTION = true;
+	final boolean USING_TURN_ENCRYPTION = true;
+
+	final int  MSG_LOGIN_CAM_OK       = 0xf0;
 	final int MSG_DISCONNECT		 = 0xf1;
 	
 	final int MSG_VIDEO_LIST_GET_OK  = 0xf2;
@@ -30,7 +35,7 @@ public interface IConst {
 	final String TEST_TURN_SERVICE_IP = "180.166.7.214";//turn service ip 仅作 100868 登入
 //	final String TEST_IP = null;
 	
-	final int TEST_TURN_SERVICE_PORT = 8862;//turn service port
+	final int TEST_TURN_SERVICE_PORT = 8812;//turn service port   8862
 	
 	
 	

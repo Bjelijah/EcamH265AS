@@ -24,6 +24,9 @@ typedef int on_socket_error();
  */
 int trans_init(on_connect *c_fun,on_ack_res* a_fun,on_data_fun* d_fun,on_socket_error* e_fun);
 
+int trans_set_no_use_ssl();
+
+
 int trans_set_crt(const char *ca_crt,const char *client_crt,const char * client_key);
 
 int trans_set_crt_path(const char* ca_path,const char* client_path,const char *key_path);
