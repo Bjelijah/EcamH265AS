@@ -3,6 +3,7 @@ package com.howell.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,7 +34,9 @@ public class LoginSettingActivity extends Activity implements OnClickListener,IC
 		mSave = (Button) findViewById(R.id.login_sttting_bt_save);
 		mSave.setOnClickListener(this);
 		mSevriceIP = (EditText) findViewById(R.id.login_settting_ip);
+	//	mSevriceIP.setInputType(InputType.TYPE_CLASS_NUMBER);
 		mServicePort = (EditText) findViewById(R.id.login_settting_port);
+	//	mServicePort.setInputType(InputType.TYPE_CLASS_NUMBER);
 		init();
 	}
 
@@ -74,7 +77,7 @@ public class LoginSettingActivity extends Activity implements OnClickListener,IC
 		String portStr = mServicePort.getText().toString();
 		int port = 8850;
 		if (ip.equals("")) {
-			ip = "180.166.7.214";
+			ip = "111.160.26.162";
 		}else{
 			result = Utils.checkIsIP(ip);
 			Log.i("123","result = "+ result);

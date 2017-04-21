@@ -12,7 +12,7 @@
     <string name="message">Please link network first</string>
     <string name="ok">OK</string>
     <string name="save_and_back">Save And Back</string>
-    <string name="login_setting_default_IP">180.166.7.214</string>
+    <string name="login_setting_default_IP">111.160.26.162</string>
     <string name="login_setting_default_port">8850</string>
     <string name="login_setting_introduction">Note: If empty, will use the default IP and PORT</string>
     <string name="verification">Account and password cannot be empty</string>

@@ -41,13 +41,10 @@ public class SSlSocketUtil implements IConst{
 	Context mContext;
 	String mIp;
 	int mPort;
-	
 
 	SSLSocket mSocket;
 	OutputStream mOutputStream;
 	InputStream mInputStream;
-	
-	
 
 	Thread mReadThread;
 	boolean mbConnected;
@@ -64,8 +61,6 @@ public class SSlSocketUtil implements IConst{
 	
 	public void connectSocket(){
 		Log.i("123", "ssl socket connect");
-		
-		
 		new AsyncTask<Void, Void, Void>() {
 
 			@Override

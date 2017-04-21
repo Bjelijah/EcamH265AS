@@ -1658,7 +1658,6 @@ public class SoapManager implements Serializable ,IConst{
 		}
 		
 		return res;
-	 	
 	}
 	
 	public UpdataDeviceAuthenticatedRes getUpdataDeviceAuthenticatedRes(UpdataDeviceAuthenticatedReq req){

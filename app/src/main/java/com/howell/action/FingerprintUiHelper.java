@@ -108,6 +108,7 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
 			// for ActivityCompat#requestPermissions for more details.
 			return;
 		}
+		//Log.i("123","finger start listen");
 		mFingerprintManager.authenticate(cryptoObject, mCancellationSignal, 0, this, mHandler);
 	}
 
@@ -166,9 +167,9 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
 
 	@Override
 	public void onAuthenticationSucceeded(AuthenticationResult result) {
-
-		MyFingerprintBeans bean = null;
-
+		Log.i("123","onAuthenticationSucceeded");
+		MyFingerprintBeans bean = new MyFingerprintBeans();
+		Log.e("123","bean start fingerprint");
 		try {
 			bean = MyFingerprintUtil.getFingerprint(result);
 		} catch (NoSuchMethodException e) {
@@ -181,8 +182,12 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+		} catch (NullPointerException e){
+			e.printStackTrace();
+		} catch (Exception e){
+			e.printStackTrace();
 		}
-
+		Log.e("123","bean="+bean);
 		Log.e("123", "onAuthenticationSucceeded   fingerID="+bean.getFpID());
 
 		mCallback.onAuthenticated(bean.getFpID());

@@ -1,5 +1,5 @@
 #include <jni.h>
-#include<stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
 #include <android/log.h>
@@ -13,7 +13,7 @@
 #include "include/play_def.h"
 #include "include/IHW265Dec_Api.h"
 #include "include/transmgr.h"
-#include"com_howell_jni_JniUtil.h"
+#include "com_howell_jni_JniUtil.h"
 
 
 
@@ -101,7 +101,6 @@ void yv12gl_display(const unsigned char * y, const unsigned char *u,const unsign
 	g_yuv_display->env->CallVoidMethod(g_yuv_display->callback_obj,g_yuv_display->set_time_method,g_yuv_display->time);
 	pthread_mutex_lock(&g_yuv_display->lock);
 	if (width!=g_yuv_display->width || height!=g_yuv_display->height) {
-		LOGI("g_display->width = %d  width=%d",g_yuv_display->width,width);
 		if(g_yuv_display->y!=NULL){
 			free(g_yuv_display->y);
 			g_yuv_display->y = NULL;
@@ -553,7 +552,7 @@ void on_live_stream_fun(LIVE_STREAM_HANDLE handle,int stream_type,const char* bu
 
 static void on_source_callback(PLAY_HANDLE handle, int type, const char* buf, int len, unsigned long timestamp, long sys_tm, int w, int h, int framerate, int au_sample, int au_channel, int au_bits, long user){
 
-	LOGE("type=%d  len=%d  w=%d  h=%d  timestamp=%ld sys_tm=%ld  framerate=%d  au_sample=%d  au_channel=%d au_bits=%d",type,len,w,h,timestamp,sys_tm,framerate,au_sample,au_channel,au_bits);
+	//LOGE("type=%d  len=%d  w=%d  h=%d  timestamp=%ld sys_tm=%ld  framerate=%d  au_sample=%d  au_channel=%d au_bits=%d",type,len,w,h,timestamp,sys_tm,framerate,au_sample,au_channel,au_bits);
 
 	if(type == 0){//音频
 		//		audio_play(buf,len,au_sample,au_channel,au_bits);
@@ -645,22 +644,23 @@ JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayLive
 	 */
 
 
-	LOGE(" code= 0x%x",media_head.vdec_code);
+//	LOGE(" code= 0x%x",media_head.vdec_code);
 
 
 	PLAY_HANDLE  ph = hwplay_open_stream((const char*)&media_head,sizeof(media_head),1024*1024,0,area);
 	res->play_handle = ph;
 	hwplay_open_sound(ph);
 	//hwplay_set_max_framenum_in_buf(ph,is_playback?25:5);
-	LOGI("ph=%d",ph);
 	int b = hwplay_register_source_data_callback(ph,on_source_callback,0);
-	LOGI("callback bool = %d   play_handle=%d ",b,res->play_handle);
 	return res->play_handle>=0?true:false;
 }
 
 JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayTurnLive
 		(JNIEnv *env, jclass, jobject obj){
-	if(res == NULL) return false;
+	if(res == NULL) {
+	    LOGE("res=NULL");
+	    return false;
+	}
 	jclass clz = env->GetObjectClass(obj);
 	int auChannel = 0;
 	int auSample = 0;
@@ -688,7 +688,7 @@ JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayTurnLive
 	media_head.media_fourcc = HW_MEDIA_TAG;
 	media_head.au_channel = auChannel;
 	media_head.au_sample = auSample/1000;
-	media_head.au_bits = 16;
+	media_head.au_bits = auBits;
 
 	switch (auCode){
 		case 0:
@@ -698,7 +698,7 @@ JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayTurnLive
 			media_head.adec_code = ADEC_G711U;
 			break;
 	}
-
+  //  LOGE("video Code=%d",vidioCode);
 	switch (vidioCode){
 		case 0:
 			media_head.vdec_code = VDEC_H264;//ecam
@@ -721,10 +721,9 @@ JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayTurnLive
     PLAY_HANDLE  ph = hwplay_open_stream((const char*)&media_head,sizeof(media_head),1024*1024,0,area);
     res->play_handle = ph;
     hwplay_open_sound(ph);
+  //  LOGI("ph=%d",ph);
     //hwplay_set_max_framenum_in_buf(ph,is_playback?25:5);
-    LOGI("ph=%d",ph);
     int b = hwplay_register_source_data_callback(ph,on_source_callback,0);
-    LOGI("callback bool = %d   play_handle=%d ",b,res->play_handle);
     return res->play_handle>=0?true:false;
 
 
@@ -781,7 +780,6 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_nativeAudioInit
 		self->jsonMethod_ready=0;
 		self->method_ready = 0;
 		self->stop = 0;
-		LOGI("native audio init ok");
 	}
 }
 
@@ -864,7 +862,7 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_getHI265Version
 
 	IHWVIDEO_ALG_VERSION_STRU stVersion;
 	IHW265D_GetVersion(&stVersion);
-	LOGI("version = %d",stVersion.uiCompileVersion);
+
 }
 
 
@@ -893,7 +891,6 @@ static TRANS_T* g_transMgr = NULL;
 int on_my_connect(const char* session_id){
 
 	if(g_transMgr==NULL)return -1;
-	LOGI("session_id=%s",session_id);
 
 	//		if(g_transMgr->jvm->AttachCurrentThread( &g_transMgr->env, NULL) != JNI_OK) {
 	//				LOGE("%s: AttachCurrentThread() failed", __FUNCTION__);
@@ -950,7 +947,6 @@ int on_record_list_res(const char* jsonStr,int len){
 
 int on_my_ack_res(int msgCommand,void * res,int len){
 
-	LOGI("msgCommand = 0x%x",msgCommand);
 	switch (msgCommand) {
 		case 0x13:
 		{
@@ -992,10 +988,6 @@ int on_my_ack_res(int msgCommand,void * res,int len){
 			break;
 	}
 
-
-
-
-
 	return 0;
 }
 
@@ -1008,7 +1000,7 @@ long getTimeStamp(){
 }
 
 int on_my_socket_error_fun(){
-	LOGE("on my socket_error fun");
+	//LOGE("on my socket_error fun");
 	if(res == NULL)return -1;
 	JNIEnv *env = NULL;
 	JavaVM * _jvm = g_transMgr->jvm;
@@ -1073,7 +1065,6 @@ int on_my_data_fun(int type,const char *data,int len){
 	}
 
 	int ret = hwplay_input_data(res->play_handle, data ,len);
-	LOGI("input data data ret=%d",ret);
 	return 0;
 
 	//Fixme
@@ -1093,16 +1084,15 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transInit
 		env->GetJavaVM(&g_transMgr->jvm);
 	}
 	trans_init(on_my_connect,on_my_ack_res,on_my_data_fun,on_my_socket_error_fun);
-	if (!isSSL){
-		trans_set_no_use_ssl();
-	}
+
+	trans_set_no_use_ssl(!isSSL);
+
 
 	const char * _ip = env->GetStringUTFChars(ip,0);
 	strcpy(g_transMgr->ip,_ip);
 	g_transMgr->port = port;
 
 	env->ReleaseStringUTFChars(ip,_ip);
-	LOGI("trans init ok");
 }
 
 
@@ -1130,11 +1120,9 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transConnect
 	const char * _pwd = env->GetStringUTFChars(pwd,0);
 
 	int ret = trans_connect(type,_id,_name,_pwd,g_transMgr->ip,g_transMgr->port);
-	LOGI("trans connet ret=%d",ret);
 	env->ReleaseStringUTFChars(id,_id);
 	env->ReleaseStringUTFChars(name,_name);
 	env->ReleaseStringUTFChars(pwd,_pwd);
-	LOGI("trans connect ok");
 }
 
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transDisconnect
@@ -1252,9 +1240,6 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSetCrt
 	const char * _client = env->GetStringUTFChars(client,0);
 	const char * _key  = env->GetStringUTFChars(key,0);
 
-	LOGI("ca:%s",_ca);
-	LOGI("client:%s",_client);
-	LOGI("key:%s",_key);
 	trans_set_crt(_ca,_client,_key);
 
 	env->ReleaseStringUTFChars(ca,_ca);
@@ -1270,9 +1255,6 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSetCrtPaht
 	const char * _clientPath = env->GetStringUTFChars(clientPath,0);
 	const char * _keyPath = env->GetStringUTFChars(keyPath,0);
 
-	LOGI("ca path:%s",_caPath);
-	LOGI("client path:%s",_clientPath);
-	LOGI("key path:%s",_keyPath);
 
 	trans_set_crt_path(_caPath,_clientPath,_keyPath);
 
@@ -1303,7 +1285,6 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_turnInputViewData
 		g_transMgr->transDataLen += len;
 	}
 	int ret = hwplay_input_data(res->play_handle,(const char*) data ,len);
-	LOGI("input data data ret=%d",ret);
 	env->ReleaseByteArrayElements(byteArray,data,0);
 }
 

@@ -18,10 +18,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.method.KeyListener;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -107,6 +111,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		mSoapManager = SoapManager.getInstance();
 		SoapManager.context = this;
 		mUserName = (EditText) findViewById(R.id.username);
+		//mUserName.setInputType(EditorInfo.TYPE_TEXT_VARIATION_URI);
+
 		mPassWord = (EditText) findViewById(R.id.password);
 		mButton = (Button) findViewById(R.id.ok);
 
@@ -554,7 +560,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		}
 		if (loginRes.getResult().toString().equals("OK")) {	
 			mLoginTemp = new LoginTemp(loginRes, password, account);
-			
+//			foo();//FIXME  delete finger
 			//绑定指纹
 			FingerPrintSaveFragment fragment = new FingerPrintSaveFragment();
 			fragment.setHandler(handler).setUserName(account).setUserPassword(password);

@@ -87,7 +87,7 @@ public class PlayerManager implements IConst{
 	}
 
 	public void onSubscribe(String jsonStr){
-		Log.i("123","onASubscribe   jsonStr="+jsonStr);
+		Log.i("123","!!!onASubscribe   jsonStr="+jsonStr);
 
 		if(JniUtil.readyPlayTurnLive(TurnJsonUtil.getTurnSubscribeAckAllFromJsonStr(jsonStr))){
 			JniUtil.playView();

@@ -1,5 +1,6 @@
 package com.howell.activity;
 
+import android.annotation.TargetApi;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
@@ -56,8 +57,7 @@ public class FingerPrintFragment extends DialogFragment implements FingerprintUi
 //	Timer mWaitTimer = null;
 //	MyWaitTimerTask mWaitTimeTask = null;
 	MyTimeMgr mTimemgr = MyTimeMgr.getInstance();
-	
-	
+
 	Handler mHandler = new Handler(){
 
 		@Override
@@ -94,10 +94,13 @@ public class FingerPrintFragment extends DialogFragment implements FingerprintUi
 		setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Material_Light_Dialog);
 	}
 
+
 	@RequiresApi(api = Build.VERSION_CODES.M)
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mContext = getContext();
+		Log.i("123","oncreateview");
+		//mContext = getActivity().getApplicationContext();
 		getDialog().setTitle(getString(R.string.finger_title));
 
 		View v = inflater.inflate(R.layout.fingerprint_dialog_container, container, false);
@@ -105,6 +108,7 @@ public class FingerPrintFragment extends DialogFragment implements FingerprintUi
 		mTvCancel.setOnTouchListener(this);
 		mTvPassword = (TextView) v.findViewById(R.id.tv_finger_password);
 		mTvPassword.setOnTouchListener(this);
+
 		mFinger = new FingerprintUiHelper(mContext,mContext.getSystemService(FingerprintManager.class), this);
 		mFinger.startListening(null);
 		mTvFingerState = (TextView) v.findViewById(R.id.fingerprint_status);
@@ -126,7 +130,7 @@ public class FingerPrintFragment extends DialogFragment implements FingerprintUi
 //		mBrokenView.setCallback(callback);
 //		mIvFingerState.setOnTouchListener(colorfulListener);
 		
-		Log.e("123", "on create view");
+		Log.e("123", "on create view end");
 		mTimemgr.setmHandler(mHandler);
 		if (o!=null) {
 			Log.i("123", "o show listener");

@@ -3,6 +3,7 @@ package com.howell.activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -75,7 +76,7 @@ public class RegisterOrLogin extends AppCompatActivity implements OnClickListene
 
 		if(FingerprintUiHelper.isFingerAvailable(this)){
 			FingerPrintFragment fingerFragment = new FingerPrintFragment();
-	
+
 			fingerFragment.show(getFragmentManager(), "fingerLogin");
 			
 			//set brokeView

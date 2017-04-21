@@ -1,7 +1,10 @@
 package com.howell.utils;
 
+import android.annotation.TargetApi;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.fingerprint.FingerprintManager.AuthenticationResult;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import java.lang.reflect.InvocationTargetException;
@@ -13,6 +16,8 @@ import bean.MyFingerprintBeans;
 
 public class MyFingerprintUtil {
 	
+
+
 	@Deprecated
 	public static List<MyFingerprintBeans> getAllFingerPrint(FingerprintManager fm) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
 		List<MyFingerprintBeans> list = new ArrayList<MyFingerprintBeans>();
@@ -42,7 +47,7 @@ public class MyFingerprintUtil {
 	}
 
 
-	public static MyFingerprintBeans getFingerprint(AuthenticationResult result) throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException{
+	public static MyFingerprintBeans getFingerprint(AuthenticationResult result) throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException,NullPointerException{
 		MyFingerprintBeans bean = new MyFingerprintBeans();
 		Class<AuthenticationResult> c = AuthenticationResult.class;
 		Method method1 = c.getMethod("getFingerprint");

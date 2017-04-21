@@ -12,7 +12,7 @@
     <string name="message">请先连接网络!</string>
     <string name="ok">确定</string>
     <string name="save_and_back">保存并返回</string>
-    <string name="login_setting_default_IP">180.166.7.214</string>
+    <string name="login_setting_default_IP">111.160.26.162</string>
     <string name="login_setting_default_port">8850</string>
     <string name="login_setting_introduction">注意：若缺省，将使用默认IP地址和端口号</string>
     <string name="verification">用户名和密码不能为空</string>
