@@ -9,6 +9,14 @@ extern "C" {
 #endif
 /*
  * Class:     com_howell_jni_JniUtil
+ * Method:    logEnable
+ * Signature: (Z)V
+ */
+JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_logEnable
+  (JNIEnv *, jclass, jboolean);
+
+/*
+ * Class:     com_howell_jni_JniUtil
  * Method:    YUVInit
  * Signature: ()V
  */
@@ -86,6 +94,38 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVRenderU
  */
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVRenderV
   (JNIEnv *, jclass);
+
+/*
+ * Class:     com_howell_jni_JniUtil
+ * Method:    YUVsetData
+ * Signature: ([BIII)V
+ */
+JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_YUVsetData
+  (JNIEnv *, jclass, jbyteArray, jint, jint, jint);
+
+/*
+ * Class:     com_howell_jni_JniUtil
+ * Method:    setH264Data
+ * Signature: ([BIIII)V
+ */
+JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_setH264Data
+  (JNIEnv *, jclass, jbyteArray, jint, jint, jint, jint);
+
+/*
+ * Class:     com_howell_jni_JniUtil
+ * Method:    setHWData
+ * Signature: ([BI)V
+ */
+JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_setHWData
+  (JNIEnv *, jclass, jbyteArray, jint);
+
+/*
+ * Class:     com_howell_jni_JniUtil
+ * Method:    H264toHWStream
+ * Signature: ([BII)[B
+ */
+JNIEXPORT jbyteArray JNICALL Java_com_howell_jni_JniUtil_H264toHWStream
+  (JNIEnv *, jclass, jbyteArray, jint, jint);
 
 /*
  * Class:     com_howell_jni_JniUtil
@@ -186,10 +226,10 @@ JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayLive
 /*
  * Class:     com_howell_jni_JniUtil
  * Method:    readyPlayTurnLive
- * Signature: (Ljava/lang/Object;)Z
+ * Signature: (Ljava/lang/Object;I)Z
  */
 JNIEXPORT jboolean JNICALL Java_com_howell_jni_JniUtil_readyPlayTurnLive
-  (JNIEnv *, jclass, jobject);
+  (JNIEnv *, jclass, jobject, jint);
 
 /*
  * Class:     com_howell_jni_JniUtil
@@ -209,10 +249,42 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_playView
 
 /*
  * Class:     com_howell_jni_JniUtil
+ * Method:    pauseAndPlayView
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_pauseAndPlayView
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     com_howell_jni_JniUtil
+ * Method:    isPause
+ * Signature: ()I
+ */
+JNIEXPORT jint JNICALL Java_com_howell_jni_JniUtil_isPause
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     com_howell_jni_JniUtil
  * Method:    stopView
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_stopView
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     com_howell_jni_JniUtil
+ * Method:    getFirstTimeStamp
+ * Signature: ()J
+ */
+JNIEXPORT jlong JNICALL Java_com_howell_jni_JniUtil_getFirstTimeStamp
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     com_howell_jni_JniUtil
+ * Method:    getTimeStamp
+ * Signature: ()J
+ */
+JNIEXPORT jlong JNICALL Java_com_howell_jni_JniUtil_getTimeStamp
   (JNIEnv *, jclass);
 
 /*
@@ -226,10 +298,10 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_getHI265Version
 /*
  * Class:     com_howell_jni_JniUtil
  * Method:    transInit
- * Signature: (Ljava/lang/String;IZ)V
+ * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transInit
-  (JNIEnv *, jclass, jstring, jint, jboolean);
+  (JNIEnv *, jclass);
 
 /*
  * Class:     com_howell_jni_JniUtil
@@ -258,10 +330,10 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transDeinit
 /*
  * Class:     com_howell_jni_JniUtil
  * Method:    transConnect
- * Signature: (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+ * Signature: (Ljava/lang/String;IZILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
  */
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transConnect
-  (JNIEnv *, jclass, jint, jstring, jstring, jstring);
+  (JNIEnv *, jclass, jstring, jint, jboolean, jint, jstring, jstring, jstring);
 
 /*
  * Class:     com_howell_jni_JniUtil
@@ -334,6 +406,14 @@ JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSetCrt
  */
 JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transSetCrtPaht
   (JNIEnv *, jclass, jstring, jstring, jstring);
+
+/*
+ * Class:     com_howell_jni_JniUtil
+ * Method:    transPTZControl
+ * Signature: (Ljava/lang/String;I)V
+ */
+JNIEXPORT void JNICALL Java_com_howell_jni_JniUtil_transPTZControl
+  (JNIEnv *, jclass, jstring, jint);
 
 /*
  * Class:     com_howell_jni_JniUtil

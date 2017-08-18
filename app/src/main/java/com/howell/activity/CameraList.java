@@ -228,7 +228,7 @@ public class CameraList extends ListActivity implements Observer{
 								System.out.println(d.getDevID()+":"+d.isHasUpdate());
 								System.out.println("cur ver:"+getDevVerRes.getCurDevVer()+" new ver:"+getDevVerRes.getNewDevVer());
 							}catch(Exception e){
-
+								Log.e("123","get ver error");
 							}
 
 		                }

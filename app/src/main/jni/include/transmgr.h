@@ -18,7 +18,7 @@ extern "C"{
 typedef int on_connect(const char* session_id);
 typedef int on_ack_res(int msgCommand,void * res,int len);
 typedef int on_data_fun(int type,const char *data,int len);
-typedef int on_socket_error();
+typedef int on_socket_error(int flag);
 /**
  * 初始化
  */

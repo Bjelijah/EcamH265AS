@@ -1,4 +1,4 @@
-./obj/local/armeabi-v7a/objs/player_jni/HiPlayDemo.o: jni/HiPlayDemo.cpp \
+./obj/local/armeabi-v7a/objs/player_jni/HiPlayDemo.o: jni/HiPlayDemo.cc \
   jni/include/stream_type.h jni/include/net_sdk.h jni/include/net_err.h \
   jni/include/protocol_type.h jni/include/hw_config.h \
   jni/include/play_def.h jni/include/IHW265Dec_Api.h \

@@ -45,7 +45,7 @@ public class SoapManager implements Serializable ,IConst{
     private LoginRequest mLoginRequest;
     private LoginResponse mLoginResponse;
     private GetNATServerRes mGetNATServerRes;
-    
+
     private GetDeviceMatchingCodeRes mGetDeviceMatchingCodeRes;
 
     private ArrayList<NodeDetails> nodeDetails = new ArrayList<NodeDetails>();
@@ -54,8 +54,9 @@ public class SoapManager implements Serializable ,IConst{
     private SoapManager() {
 
     }
-    
-    public static void initUrl(Context context){
+
+
+	public static void initUrl(Context context){
     	
     	if (PlatformAction.getInstance().isTest()) {
 			sEndPoint = WSDL_URL;

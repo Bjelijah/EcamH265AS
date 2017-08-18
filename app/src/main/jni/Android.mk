@@ -41,12 +41,13 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
 LOCAL_STATIC_LIBRARIES:=osipparser2 pj pj-util pjnath gnustl_static ssl crypto
 include $(PREBUILT_STATIC_LIBRARY)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE := hwplay
-LOCAL_SRC_FILES := libhwplay.so
-LOCAL_CFLAGS := -fPIC
-LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
-include $(PREBUILT_SHARED_LIBRARY)
+
+
+#include $(CLEAR_VARS)
+#LOCAL_MODULE := hwplay
+#LOCAL_SRC_FILES := libhwplay.a
+#LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
+#include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := jpush
@@ -105,6 +106,15 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
 LOCAL_STATIC_LIBRARIES:=swscale swresample postproc avutil avfilter avdevice
 include $(PREBUILT_STATIC_LIBRARY)
 
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := hwplay
+LOCAL_SRC_FILES := libhwplay.so
+LOCAL_CFLAGS := -fPIC
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
+include $(PREBUILT_SHARED_LIBRARY)
+
+
 include $(CLEAR_VARS)
 LOCAL_MODULE := XQuquerOfflineSDK
 LOCAL_SRC_FILES := libXQuquerOfflineSDK.so
@@ -126,6 +136,7 @@ include $(PREBUILT_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := hiPlay
 LOCAL_SRC_FILES := libHW_H265dec_Andr.a
+LOCAL_CFLAGS := -fPIC
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
 include $(PREBUILT_STATIC_LIBRARY)
 
@@ -136,15 +147,20 @@ LOCAL_CFLAGS := -fPIC
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
 include $(PREBUILT_SHARED_LIBRARY)
 
+#include $(CLEAR_VARS)
+#LOCAL_MODULE := hwtrans
+#LOCAL_SRC_FILES := libhwtrans.a
+#LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
+#include $(PREBUILT_STATIC_LIBRARY)
 
 
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := player_jni
 # Add your application source files here...
-LOCAL_SRC_FILES := yv12gl_jni.c streamreq_jni.c audio_jni.c g711.cpp g7.cpp main1.c HiPlayDemo.cpp
+LOCAL_SRC_FILES := yv12gl_jni.c streamreq_jni.c audio_jni.c g711.cpp g7.cpp main1.c HiPlayDemo.cc
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
-LOCAL_SHARED_LIBRARIES := hwplay hiPlay hwtrans ecamstream jpush
+LOCAL_SHARED_LIBRARIES := hwplay hiPlay hwtrans ecamstream #jpushcc
 #LOCAL_STATIC_LIBRARIES := ecamstream
 LOCAL_LDFLAGS := -LE:/Android/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a
 LOCAL_LDLIBS := -llog  -lGLESv2 -lz -ldl -lgcc #-lgnustl_static

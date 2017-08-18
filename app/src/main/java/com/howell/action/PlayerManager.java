@@ -78,7 +78,7 @@ public class PlayerManager implements IConst{
 		handler.sendEmptyMessage(MSG_DISCONNECT);
 	}
 	
-	public void onDisconnectUnexpect(){
+	public void onDisconnectUnexpect(int flag){
 		Log.i("123", "on disConnectUnexpect  we need reLink");
 		stopTimerTask();
 //		PlayerActivity.showStreamLen(0);
@@ -89,7 +89,7 @@ public class PlayerManager implements IConst{
 	public void onSubscribe(String jsonStr){
 		Log.i("123","!!!onASubscribe   jsonStr="+jsonStr);
 
-		if(JniUtil.readyPlayTurnLive(TurnJsonUtil.getTurnSubscribeAckAllFromJsonStr(jsonStr))){
+		if(JniUtil.readyPlayTurnLive(TurnJsonUtil.getTurnSubscribeAckAllFromJsonStr(jsonStr),0)){
 			JniUtil.playView();
 			startTimerTask();
 		}else{
@@ -166,12 +166,13 @@ public class PlayerManager implements IConst{
 			protected Void doInBackground(Void... params) {
 				Log.i("123", "doinback");	
 				JniUtil.netInit();
-				JniUtil.transInit(turnServiceIP, turnServicePort,USING_TURN_ENCRYPTION);//FIXME
+				JniUtil.transInit();//FIXME
 				mIsTransDeinit = false;
 				JniUtil.transSetCallBackObj(PlayerManager.this, 0);
 				JniUtil.transSetCallbackMethodName("onConnect", 0);
 				JniUtil.transSetCallbackMethodName("onDisConnect", 1);
 				JniUtil.transSetCallbackMethodName("onRecordFileList", 2);
+				Log.i("123","disconnectunexpect");
 				JniUtil.transSetCallbackMethodName("onDisconnectUnexpect", 3);
 				JniUtil.transSetCallbackMethodName("onSubscribe",4);
 				InputStream ca = getClass().getResourceAsStream("/assets/ca.crt");
@@ -196,7 +197,7 @@ public class PlayerManager implements IConst{
 				String id = PhoneConfig.getPhoneUid(context);//FIXME  android id
 				String imei = PhoneConfig.getPhoneDeveceID(context);  //imei
 				
-				JniUtil.transConnect(type, imei, PlatformAction.getInstance().getAccount(), PlatformAction.getInstance().getPassword());				
+				JniUtil.transConnect(turnServiceIP, turnServicePort,USING_TURN_ENCRYPTION,type, imei, PlatformAction.getInstance().getAccount(), PlatformAction.getInstance().getPassword());
 				Log.i("PlayManager", "transConnect ok");
 				
 				AudioAction.getInstance().initAudio();
@@ -279,13 +280,7 @@ public class PlayerManager implements IConst{
 		}
 	}
 	
-	public void transInit(String ip,int port){
-		JniUtil.transInit(ip, port,USING_TURN_ENCRYPTION);
-	}
-	
-	public void transConnect(int type,String id,String name,String pwd){
-		JniUtil.transConnect(type, id, name, pwd);
-	}
+
 	
 	public void stransSubscribe(String jsonStr,int jsonLen){
 		JniUtil.transSubscribe(jsonStr, jsonLen);
