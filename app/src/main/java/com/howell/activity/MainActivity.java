@@ -560,11 +560,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		}
 		if (loginRes.getResult().toString().equals("OK")) {	
 			mLoginTemp = new LoginTemp(loginRes, password, account);
-//			foo();//FIXME  delete finger
+			foo();//FIXME  delete finger
 			//绑定指纹
-			FingerPrintSaveFragment fragment = new FingerPrintSaveFragment();
-			fragment.setHandler(handler).setUserName(account).setUserPassword(password);
-			fragment.show(getFragmentManager(), "fingerSave");
+//			FingerPrintSaveFragment fragment = new FingerPrintSaveFragment();
+//			fragment.setHandler(handler).setUserName(account).setUserPassword(password);
+//			fragment.show(getFragmentManager(), "fingerSave");
 		}else if(loginRes.getResult().toString().equals("AccountNotExist")){
 			MessageUtiles.postAlertDialog(MainActivity.this, getResources().getString(R.string.login_fail), getResources().getString(R.string.account_error), R.drawable.expander_ic_minimized
 					, null, getResources().getString(R.string.ok), null, null);

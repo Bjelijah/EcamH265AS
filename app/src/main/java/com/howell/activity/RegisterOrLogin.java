@@ -74,17 +74,11 @@ public class RegisterOrLogin extends AppCompatActivity implements OnClickListene
 			return;
 		}
 
-		if(FingerprintUiHelper.isFingerAvailable(this)){
-			FingerPrintFragment fingerFragment = new FingerPrintFragment();
-
-			fingerFragment.show(getFragmentManager(), "fingerLogin");
-			
-			//set brokeView
-			
-		
-			
-			
-		}
+//		if(FingerprintUiHelper.isFingerAvailable(this)){
+//			FingerPrintFragment fingerFragment = new FingerPrintFragment();
+//			fingerFragment.show(getFragmentManager(), "fingerLogin");
+//			//set brokeView
+//		}
 	}
 
 
